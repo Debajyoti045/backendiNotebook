@@ -12,11 +12,11 @@ router.get("/fetchallnotes", fetchUser, async (req, res) => {
     const notes = await Notes.find({ user: req.user.id });
     res.json({
       msg: "Notes fetch successfully!",
-      note: notes
+      note: notes,
     });
   } catch (error) {
     res.json({
-      error: "Internal server error!"
+      error: "Internal server error!",
     });
   }
 });
@@ -38,7 +38,7 @@ router.post(
     // Validation check
     if (!errors.isEmpty()) {
       res.json({
-       error: errors.array()[0].msg,
+        error: errors.array()[0].msg,
       });
     } else {
       // create a new note with userId
